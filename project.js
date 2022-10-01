@@ -1,6 +1,6 @@
 let projectData = [
     {
-        image: 'img/project-1.png',
+        image: '',
         name: 'project one',
         detail: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec cong',
         github: '#',
