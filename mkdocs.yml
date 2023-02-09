@@ -1,16 +1,30 @@
-site_name: Notes about my journey
-
+site_name: danielcristho
 site_author: Daniel Pepuho
 site_description: >-
+  My tech documentation.
 
-repo_name: danielcristho/profile
-repo_url: https://github.com/danielcristho/profile
+# Repository
+repo_name: danielcristho/tech-docs
+repo_url: https://github.com/danielcristho/tech-docs
 site_url: "http://danielcristho.me"
-edit_uri: "edit/master/blog/"
+# edit_uri: "edit/master/blog/"
 
-docs_dir: blog
+docs_dir: docs
+theme:
+  name: material
 
-nav:
-  - Blog:
-      - index.md
-  - Tags: tags.md
+  font:
+    text: Enriqueta
+    code: Roboto Mono
+  palette:
+    # Palette toggle for light mode
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to light mode
