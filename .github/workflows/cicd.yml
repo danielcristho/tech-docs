@@ -1,1 +1,53 @@
 name: Github pages
+
+on:
+  push:
+
+env:
+  MKDOCS_INS_VER: 9.0.3-insiders-4.27.1-hellt
+
+jobs:
+  docs-test:
+    runs-on: ubuntu-20.04
+    steps:
+      - uses : actions/checkout@v3
+
+      - name: Login to Github Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: docker run -v $(pwd):/docs --user $(id -u):$(id -g) --entrypoint mkdocs ghcr.io/hellt/mkdocs-material-insiders:$MKDOCS_INS_VER build --clean --strict
+
+      - name: Cache htmltest external links
+        uses: actions/cache@v3
+        with:
+          path: tmp/.htmltest
+          key: htmltest-${{ hashFiles('blog/**/*.md') }}
+          restore-keys: |
+            htmltest-
+
+      - name: htmltest
+        uses: wjdp/htmltest-action@master
+        with:
+          config: blog/htmltest.yml
+
+  deploy:
+    runs-on: ubuntu-20.04
+    needs: docs-test
+    if: github.ref == 'refs/heads/master'
+    steps:
+      - uses: actions/checkout@v3
+        with:
+          fetch-depth: 0
+
+      - name: Login to Github Container Registry
+        uses: docker/login-action@v2
+        with:
+          registry: ghcr.io
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - run: docker run -v $(pwd):/docs --user $(id -u):$(id -g) --entrypoint mkdocs ghcr.io/hellt/mkdocs-material-insiders:$MKDOCS_INS_VER gh-deploy --force --strict

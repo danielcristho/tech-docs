@@ -1,0 +1,14 @@
+DirectoryPath: ./public
+IgnoreURLs:
+  - fonts.gstatic.com
+  - linkedin.com/in/
+IgnoreDirectoryMissingTrailingSlash: true
+IgnoreAltMissing: true
+IgnoreSSLVerify: true
+IgnoreDirs:
+  - page
+IgnoreInternalEmptyHash: true
+ExternalTimeout: 60
+HTTPHeaders:
+  "Range": "bytes0-10"
+  "Accept": "*/*"

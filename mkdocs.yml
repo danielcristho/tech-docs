@@ -1,1 +1,16 @@
 site_name: Notes about my journey
+
+site_author: Daniel Pepuho
+site_description: >-
+
+repo_name: danielcristho/profile
+repo_url: https://github.com/danielcristho/profile
+site_url: "http://danielcristho.me"
+edit_uri: "edit/master/blog/"
+
+docs_dir: blog
+
+nav:
+  - Blog:
+      - index.md
+  - Tags: tags.md
