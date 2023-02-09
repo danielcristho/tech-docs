@@ -13,12 +13,19 @@ docs_dir: docs
 theme:
   name: material
 
+  icon:
+    logo: fontawesome/solid/terminal
+    repo: fontawesome/brands/github
+    edit: material/file-edit-outline
+  favicon: assets/images/icon.svg
+
+
   font:
     text: Enriqueta
     code: Roboto Mono
   palette:
     # Palette toggle for light mode
-    - scheme: default
+    - primary: default
       toggle:
         icon: material/toggle-switch
         name: Switch to dark mode
@@ -28,3 +35,23 @@ theme:
       toggle:
         icon: material/toggle-switch-off-outline
         name: Switch to light mode
+
+  features:
+      - navigation.top
+      - navigation.instant
+      - navigation.tabs
+      - search.suggest
+      - content.code.annotate
+      - toc.follow
+      - content.tooltips
+      - navigation.indexes
+
+  language: en
+
+  # 404 page
+  static_templates:
+    - 404.html
+
+nav:
+  - Docs:
+      - index.md
