@@ -6,7 +6,7 @@ site_description: >-
 # Repository
 repo_name: danielcristho/tech-docs
 repo_url: https://github.com/danielcristho/tech-docs
-site_url: "http://danielcristho.me"
+site_url: "https://tech-docs-swart.vercel.app"
 # edit_uri: "edit/master/blog/"
 
 docs_dir: docs
