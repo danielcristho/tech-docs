@@ -6,4 +6,4 @@ hide:
 
 # About me
 
-Hey, let's meet? I am Daniel, my passionate is network programming and this is my technical documentations.
+Hey, glad to see you? I am Daniel, my passionate is network programming and this is my technical documentations.
