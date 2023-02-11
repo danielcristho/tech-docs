@@ -1,14 +1,15 @@
-DirectoryPath: ./public
+DirectoryPath: docs
 IgnoreURLs:
+  - linkedin.com/in
+  - twitter.com
   - fonts.gstatic.com
-  - linkedin.com/in/
 IgnoreDirectoryMissingTrailingSlash: true
-IgnoreAltMissing: true
+IgonreAltMissing: true
 IgnoreSSLVerify: true
-IgnoreDirs:
-  - page
+IgonoreDirs:
+  - macros
 IgnoreInternalEmptyHash: true
 ExternalTimeout: 60
 HTTPHeaders:
-  "Range": "bytes0-10"
+  "Range": "bytes=0-10"
   "Accept": "*/*"

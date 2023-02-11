@@ -19,7 +19,6 @@ Make new .sh file on **root** directory called **mysql_backup.sh**:
 # and store in a specified directory.
 
 # Constants
-
 # Database credentials
 USER="dev"
 PASS="mypass123!"
@@ -37,6 +36,7 @@ mysqldump -h ${HOST} \
 -u ${USER} \
 -p${PASS} \
 ${DB_NAME} | gzip - > $BACKUP_DIRECTORY/$DB_NAME\_$CURRENT_DATE.sql.gz
+
 ```
 
 ## 2. Change file permission
