@@ -46,12 +46,49 @@ theme:
       - content.tooltips
       - navigation.indexes
 
-  language: en
-
-  # 404 page
+    # 404 page
   static_templates:
     - 404.html
 
+  language: en
+
+
+  # Don't include MkDocs' JavaScript
+  include_search_page: false
+  search_index_only: true
+
+# Plugins
+plugins:
+  - meta-descriptions
+  - macros:
+      j2_block_start_string: "[[[%"
+      j2_block_end_string: "%]]]"
+      j2_variable_start_string: "[[["
+      j2_variable_end_string: "]]]"
+      include_yaml:
+        - macros/data.yml
+  - blog:
+      blog_dir: .
+      post_url_date_format: yyyy
+      archive: false
+      categories: false
+  - tags:
+      tags_file: tags.md
+  - search:
+      separator: '[\s\-\_]'
+
+# Customization
+extra:
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/danielcristho
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/danielcristho
+  analytics:
+    provider: google
+    property: G-Y7R34KCT4N
+
 nav:
-  - Docs:
-      - index.md
+  - Docs: index.md
+  - Tags: tags.md
+  - Connect: social.md
