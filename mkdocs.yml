@@ -46,13 +46,17 @@ theme:
       - toc.follow
       - content.tooltips
       - navigation.indexes
+      - content.code.copy
 
     # 404 page
   static_templates:
     - 404.html
 
-  language: en
+    # Stylesheet
+  extra_css:
+    - stylesheets/extra.css
 
+  language: en
 
   # Don't include MkDocs' JavaScript
   include_search_page: false
@@ -91,18 +95,45 @@ plugins:
       comments_path: "#__comments"
 
 # Customization
-extra:
-  social:
-    - icon: fontawesome/brands/github
-      link: https://github.com/danielcristho
-    - icon: fontawesome/brands/twitter
-      link: https://twitter.com/chrstdan
-  analytics:
-    provider: google
-    property: G-Y7R34KCT4N
-
-  extra_css:
-  - stylesheets/extra.css
+markdown_extensions:
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+  - markdown.extensions.admonition
+  - markdown.extensions.attr_list
+  - markdown.extensions.md_in_html
+  - markdown.extensions.codehilite:
+      guess_lang: false
+  - markdown.extensions.def_list
+  - markdown.extensions.footnotes
+  - markdown.extensions.meta
+  - toc:
+      permalink: "#"
+  - pymdownx.arithmatex
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.critic
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.snippets
+  - pymdownx.highlight:
+      linenums_style: pymdownx-inline
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink
+  - pymdownx.mark
+  - pymdownx.smartsymbols:
+      fractions: false
+  - pymdownx.snippets:
+      check_paths: true
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
 
 nav:
   - Docs: index.md

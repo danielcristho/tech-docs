@@ -1,5 +1,5 @@
 ---
-sidebar_positon: 2
+authors: danielcristho
 date: 2023-02-11
 comments: true
 tags:
@@ -11,15 +11,9 @@ tags:
 
 ## 1. Create a script file for backup
 
-Make new .sh file on **root** directory called **mysql_backup.sh**:
+Make new .sh file on **root** directory:
 
-```bash
-#!/bin/bash
-# This script will backup the database
-# and store in a specified directory.
-
-# Constants
-# Database credentials
+``` bash title="mysql_backup.sh"
 USER="dev"
 PASS="mypass123!"
 DB_NAME="mydb"
@@ -42,9 +36,11 @@ ${DB_NAME} | gzip - > $BACKUP_DIRECTORY/$DB_NAME\_$CURRENT_DATE.sql.gz
 ## 2. Change file permission
 
 ```bash
+
 chmod 700 /root/mysql_backup.sh
 or
 chmod +x /root/mysql_backup.sh
+
 ```
 
 ## 3. Add new cron using crontab
@@ -58,7 +54,9 @@ crontab -e
 add this command at the end of the file so your database will be backup up every 30 minutes.
 
 ```bash
+
 */30 * * * * bash /root/mysql_backup.sh > /dev/null 2>&1
+
 ```
 
 ## 4. Restore database
@@ -66,7 +64,9 @@ add this command at the end of the file so your database will be backup up every
 You can restore the .gz using gunzip into the current database.
 
 ```bash
+
 gunzip -c ...sql.gz | mysql -h localhost -U DB_NAME -u USER -p
+
 ```
 
 **Thank you for reading this post. Happy learn.**
