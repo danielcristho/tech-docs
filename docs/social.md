@@ -3,6 +3,10 @@ hide:
   - navigation
 ---
 
+## About me
+
+Hey, glad to see you! I am Daniel, my passionate is network programming and this is my technical documentations.
+
 ## Social media
 
 I am an active :material-twitter You can find me there as [@chrstdan][twitter].

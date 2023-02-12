@@ -12,6 +12,7 @@ site_url: "https://tech-docs-swart.vercel.app"
 docs_dir: docs
 theme:
   name: material
+  custom_dir: overrides
 
   icon:
     logo: fontawesome/solid/terminal
@@ -76,6 +77,18 @@ plugins:
       tags_file: tags.md
   - search:
       separator: '[\s\-\_]'
+  - minify:
+      minify_html: true
+  - redirects:
+      redirect_maps:
+  - rss:
+      match_path: posts/.*
+      abstract_chars_count: 5000
+      date_from_meta:
+        as_creation: date
+      categories:
+        - tags
+      comments_path: "#__comments"
 
 # Customization
 extra:
@@ -87,6 +100,9 @@ extra:
   analytics:
     provider: google
     property: G-Y7R34KCT4N
+
+  extra_css:
+  - stylesheets/extra.css
 
 nav:
   - Docs: index.md
