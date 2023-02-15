@@ -43,3 +43,6 @@ soupsieve==2.3.2.post1
 termcolor==2.2.0
 urllib3==1.26.14
 watchdog==2.2.1
+bs4
+html5lib
+lxml
