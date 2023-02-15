@@ -54,7 +54,7 @@ theme:
 
     # Stylesheet
   extra_css:
-    - stylesheets/extra.css
+    - overrides/stylesheet/extra.css
 
   language: en
 
@@ -65,6 +65,12 @@ theme:
 # Plugins
 plugins:
   - meta-descriptions
+  - git-authors
+  - git-revision-date-localized:
+      enable_creation_date: true
+  - git-committers:
+      repository: danielcristho/tech-docs
+      enabled: !ENV [CI, false]
   - macros:
       j2_block_start_string: "[[[%"
       j2_block_end_string: "%]]]"

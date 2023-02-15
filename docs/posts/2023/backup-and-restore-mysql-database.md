@@ -1,6 +1,7 @@
 ---
-authors: danielcristho
-date: 2023-02-11
+title: Backup and restore MySQL database using Bash script
+author: danielcristho
+date: 2023-09-01
 comments: true
 tags:
     - database
