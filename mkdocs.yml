@@ -12,7 +12,7 @@ site_url: "https://tech-docs-swart.vercel.app"
 docs_dir: docs
 theme:
   name: material
-  custom_dir: overrides
+  custom_dir: docs/theme/overrides
 
   icon:
     logo: fontawesome/solid/terminal
@@ -65,7 +65,11 @@ theme:
 # Plugins
 plugins:
   - meta-descriptions
-  - git-authors
+  - git-authors:
+      project_path: .
+      include_merge_commit_authors: false
+      include_contributors: false
+      show_last_commit: true
   - git-revision-date-localized:
       enable_creation_date: true
   - macros:
@@ -76,7 +80,7 @@ plugins:
       include_yaml:
         - macros/data.yml
   - blog:
-      blog_dir: .
+      blog_dir: docs/blog
       post_url_date_format: yyyy
       archive: false
       categories: false
@@ -96,6 +100,9 @@ plugins:
       categories:
         - tags
       comments_path: "#__comments"
+  - blog:
+      authors_file: docs/.authors.yml
+
 
 # Customization
 markdown_extensions:
@@ -144,6 +151,10 @@ extra:
       link: https://github.com/danielcristho
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/chrstdan
+  repo_url: "https://github.com/danielcristho/tech-docs"
+  analytics:
+    provider: google
+    property:
 
 nav:
   - Docs: index.md
