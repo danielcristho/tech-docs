@@ -56,7 +56,9 @@ theme:
   extra_css:
     - overrides/stylesheet/extra.css
 
-  language: en
+  language: 
+    - en 
+    - id
 
   # Don't include MkDocs' JavaScript
   include_search_page: false
@@ -88,6 +90,9 @@ plugins:
       tags_file: tags.md
   - search:
       separator: '[\s\-\_]'
+      lang:
+        - en
+        - id
   - minify:
       minify_html: true
   - redirects:
