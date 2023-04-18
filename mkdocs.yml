@@ -4,6 +4,10 @@ site_description: >-
   My tech documentation.
 copyright: > # should remain a link to the original theme
   &copy; 2023 Daniel Pepuho
+plugins:
+  - search
+  - awesome-pages
+
 theme:
     name: material
     features:

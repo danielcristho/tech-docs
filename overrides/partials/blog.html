@@ -1,0 +1,76 @@
+{% set blog_pages=[] %}
+
+{% for p in pages|sort(
+    attribute='page.meta.git_revision_date_localized',
+    reverse=True
+    )
+%}
+
+    {% set pg = p.page %}
+
+    {# do not list homepage, empty pages, hidden pages #}
+    {% set hidden = true if (pg.meta and pg.meta.hide and ('in_recent_list' in pg.meta.hide)) %}
+    {% if (not pg.is_homepage) and
+            (not pg.markdown == '') and
+                (not hidden)
+    %}
+        {{ blog_pages.append(pg) or "" }} {# use "" to not add spaces in content #}
+    {% endif %}
+    {# count the number of pages #}
+    {% set page_num = (blog_pages|count / 10)|round(method='ceil')|int %}
+
+    <div id="page_num" data-value="{{page_num}}"></div>
+
+    <div class="pages">
+        {% for pg_group in blog_pages|slice(page_num) %}
+        <div class="page" id="page{{ loop.index }}">
+            {% for pg in pg_group %}
+                <div class="post">
+                    ... create post layout and content ...
+                </div>
+            {% endfor %}
+        </div>
+    {% endfor %}
+    </div>
+    <div class="post">
+        <h4 class="post-title">
+            <a href="{{ pg.canonical_url }}">{{ pg.title }}</a>
+        </h4>
+        <div class="post-info">
+            <div>
+                <p class="post-description">
+                    {% if pg.meta and pg.meta.description %}
+                    {{ pg.meta.description | truncate(200) }}
+                    {% endif %}
+                </p>
+                <div class="post-extra row">
+                    <div class="col">
+                        {% if pg.meta and pg.meta.git_revision_date_localized %}
+                        <p class="post-date">
+                            <span>
+                                {{ pg.meta.git_revision_date_localized }}
+                            </span>
+                        </p>
+                        {% endif %}
+                    </div>
+                    <div class="col">
+                        {% if pg.meta and pg.meta.tags %}
+                        <p class="post-tags">
+                            {% for tag in pg.meta.tags %}
+                            <a class="tag" href="{{ config.site_url }}tags/#{{tag}}">
+                                <span class="tag-name" style="color:{{ random_color() }};">
+                                    #{{ tag }}
+                                </span>
+                            </a>
+                            {% endfor %}
+                        </p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+            {% if pg_image %}
+            <img class="post-banner "src='{{ pg_image }}'/>
+            {% endif %}
+        </div>
+    </div>
+{% endfor %}
