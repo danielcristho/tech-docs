@@ -2,166 +2,44 @@ site_name: danielcristho
 site_author: Daniel Pepuho
 site_description: >-
   My tech documentation.
-
-# Repository
-repo_name: danielcristho/tech-docs
-repo_url: https://github.com/danielcristho/tech-docs
-site_url: "https://tech-docs-swart.vercel.app"
-# edit_uri: "edit/master/blog/"
-
-docs_dir: docs
+copyright: > # should remain a link to the original theme
+  &copy; 2023 Daniel Pepuho
 theme:
-  name: material
-  custom_dir: docs/theme/overrides
-
-  icon:
-    logo: fontawesome/solid/terminal
-    repo: fontawesome/brands/github
-    edit: material/file-edit-outline
-  favicon: assets/images/icon.svg
-
-
-  font:
-    text: Enriqueta
-    code: Roboto Mono
-  palette:
-    # Palette toggle for light mode
-    - primary: default
-      toggle:
-        icon: material/toggle-switch
-        name: Switch to dark mode
-
-    # Palette toggle for dark mode
-    - scheme: slate
-      toggle:
-        icon: material/toggle-switch-off-outline
-        name: Switch to light mode
-
-  features:
-      - navigation.top
-      - navigation.instant
-      - navigation.tabs
-      - search.suggest
-      - content.code.annotate
-      - toc.follow
-      - content.tooltips
-      - navigation.indexes
-      - content.code.copy
-
-    # 404 page
-  static_templates:
-    - 404.html
-
-    # Stylesheet
-  extra_css:
-    - overrides/stylesheet/extra.css
-
-  language: 
-    - en 
-    - id
-
-  # Don't include MkDocs' JavaScript
-  include_search_page: false
-  search_index_only: true
-
-# Plugins
-plugins:
-  - meta-descriptions
-  - git-authors:
-      project_path: .
-      include_merge_commit_authors: false
-      include_contributors: false
-      show_last_commit: true
-  - git-revision-date-localized:
-      enable_creation_date: true
-  - macros:
-      j2_block_start_string: "[[[%"
-      j2_block_end_string: "%]]]"
-      j2_variable_start_string: "[[["
-      j2_variable_end_string: "]]]"
-      include_yaml:
-        - macros/data.yml
-  - blog:
-      blog_dir: docs/blog
-      post_url_date_format: yyyy
-      archive: false
-      categories: false
-  - tags:
-      tags_file: tags.md
-  - search:
-      separator: '[\s\-\_]'
-      lang:
-        - en
-        - id
-  - minify:
-      minify_html: true
-  - redirects:
-      redirect_maps:
-  - rss:
-      match_path: posts/.*
-      abstract_chars_count: 5000
-      date_from_meta:
-        as_creation: date
-      categories:
-        - tags
-      comments_path: "#__comments"
-  - blog:
-      authors_file: docs/.authors.yml
-
-
-# Customization
-markdown_extensions:
-  - attr_list
-  - pymdownx.emoji:
-      emoji_index: !!python/name:materialx.emoji.twemoji
-      emoji_generator: !!python/name:materialx.emoji.to_svg
-  - markdown.extensions.admonition
-  - markdown.extensions.attr_list
-  - markdown.extensions.md_in_html
-  - markdown.extensions.codehilite:
-      guess_lang: false
-  - markdown.extensions.def_list
-  - markdown.extensions.footnotes
-  - markdown.extensions.meta
-  - toc:
-      permalink: "#"
-  - pymdownx.arithmatex
-  - pymdownx.betterem:
-      smart_enable: all
-  - pymdownx.caret
-  - pymdownx.critic
-  - pymdownx.details
-  - pymdownx.superfences
-  - pymdownx.snippets
-  - pymdownx.highlight:
-      linenums_style: pymdownx-inline
-  - pymdownx.inlinehilite
-  - pymdownx.keys
-  - pymdownx.magiclink
-  - pymdownx.mark
-  - pymdownx.smartsymbols:
-      fractions: false
-  - pymdownx.snippets:
-      check_paths: true
-  - pymdownx.superfences
-  - pymdownx.tabbed:
-      alternate_style: true
-  - pymdownx.tasklist:
-      custom_checkbox: true
-  - pymdownx.tilde
-
+    name: material
+    features:
+    # - navigation.instant # some features may not work properly with XHR
+    - navigation.tracking # the URL changes with the active anchor
+    - navigation.tabs # first top-level sections are shown as tabs
+    # - navigation.tabs.sticky # tabs always show
+    # - navigation.sections # sections are rendered as groups in the sidebar
+    # - navigation.expand # all sections are expanded
+    - navigation.indexes # link an index.md page to a section
+    - navigation.top # show back-to-top button
+    # - toc.integrate # show table of contents to navigation panel
+    # - header.autohide
+    - search.suggest # display the likeliest completion for the last word
+    - search.highlight # highlight all occurrences
+    - search.share # show a share button
+    - content.code.annotate
+    font:
+      text: Noto Serif
+      code: Roboto Mono
+    palette:
+      primary: white
+      accent: deep orange
+    icon:
+      logo: fontawesome/solid/terminal
+      repo: fontawesome/brands/github
+      edit: material/file-edit-outline
+    favicon: assets/images/icon.svg
 extra:
   social:
     - icon: fontawesome/brands/github
       link: https://github.com/danielcristho
     - icon: fontawesome/brands/twitter
       link: https://twitter.com/chrstdan
-  repo_url: "https://github.com/danielcristho/tech-docs"
-  analytics:
-    provider: google
-    property:
-
-nav:
-  - Docs: index.md
-  - Tags: tags.md
-  - Connect: social.md
+  disqus: "danielcristho-github-io"
+extra_css:
+    - assets/extra.css
+extra_javascript:
+    - assets/extra.js
